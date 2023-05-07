@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://d18nyqkrdodqe"]
+
+[ext_resource type="Script" path="res://gameObjects/movable/battery/Battery.gd" id="1_k7lty"]
+[ext_resource type="Texture2D" uid="uid://dyk5husexnfnh" path="res://assets/Sprite-0002.png" id="2_hbaa5"]
+[ext_resource type="PackedScene" uid="uid://b5kpio3uv805m" path="res://components/ActivateComponent.tscn" id="3_8k281"]
+[ext_resource type="PackedScene" uid="uid://b571ig5opyff7" path="res://components/PushLayerComponent.tscn" id="4_ppfo6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrur8"]
+atlas = ExtResource("2_hbaa5")
+region = Rect2(80, 48, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tk87"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0upve"]
+size = Vector2(8, 8)
+
+[node name="Battery" type="Node2D" groups=["save_state"]]
+z_index = 1
+script = ExtResource("1_k7lty")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("AtlasTexture_vrur8")
+
+[node name="ActivateComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("3_8k281")]
+initial_color = Color(0.34902, 0.490196, 0.807843, 1)
+active_color = Color(0.854902, 0.831373, 0.368627, 1)
+sprite = NodePath("../Sprite2D")
+
+[node name="PushLayerComponent" parent="." instance=ExtResource("4_ppfo6")]
+push_layer = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_6tk87")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collide_with_areas = true
+
+[node name="ReactArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReactArea"]
+shape = SubResource("RectangleShape2D_0upve")
+
+[connection signal="area_entered" from="ReactArea" to="." method="_on_react_area_area_entered"]

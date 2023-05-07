@@ -1,0 +1,46 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="TheLastOne"
+run/main_scene="res://screens/Play.tscn"
+config/features=PackedStringArray("4.0", "Mobile")
+config/icon="res://icon.svg"
+
+[autoload]
+
+InputEventSwipe="*res://scripts/input_event_swipe.gd"
+InputTouchJoystickChange="*res://scripts/input_touch_joystick_change.gd"
+InputTouchJoystickEnd="*res://scripts/input_touch_joystick_end.gd"
+InputTouchJoystickStart="*res://scripts/input_touch_joystick_start.gd"
+
+[display]
+
+window/size/viewport_width=1102
+window/size/viewport_height=647
+window/stretch/mode="viewport"
+window/handheld/orientation=4
+
+[input]
+
+test={
+"deadzone": 0.5,
+"events": []
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[rendering]
+
+renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.0784314, 0.0470588, 0.109804, 1)

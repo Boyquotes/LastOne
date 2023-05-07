@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://stuhrajpcp6u"]
+
+[ext_resource type="Script" path="res://gameObjects/movable/crate/Crate.gd" id="1_1qgyc"]
+[ext_resource type="Texture2D" uid="uid://dyk5husexnfnh" path="res://assets/Sprite-0002.png" id="2_4io46"]
+[ext_resource type="PackedScene" uid="uid://b571ig5opyff7" path="res://components/PushLayerComponent.tscn" id="2_mpb1w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fx8ba"]
+atlas = ExtResource("2_4io46")
+region = Rect2(2.08165e-12, 48, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ow5wq"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig4m1"]
+size = Vector2(10, 10)
+
+[node name="Crate" type="Node2D" groups=["save_state"]]
+z_index = 1
+script = ExtResource("1_1qgyc")
+
+[node name="PushLayerComponent" parent="." instance=ExtResource("2_mpb1w")]
+push_layer = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("AtlasTexture_fx8ba")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ow5wq")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collide_with_areas = true
+
+[node name="ReactArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReactArea"]
+shape = SubResource("RectangleShape2D_ig4m1")
+
+[connection signal="area_entered" from="ReactArea" to="." method="_on_react_area_area_entered"]

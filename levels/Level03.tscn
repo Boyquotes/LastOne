@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbidbh27ql3x1"]
+
+[ext_resource type="TileSet" uid="uid://bey0604f4dpdg" path="res://assets/tilemap.tres" id="1_usp2r"]
+[ext_resource type="PackedScene" uid="uid://bmbqxnvqc4gue" path="res://gameObjects/movable/horizontal/Horizontal.tscn" id="2_07qy2"]
+[ext_resource type="PackedScene" path="res://gameObjects/movable/vertial/Vertical.tscn" id="2_cdjvb"]
+[ext_resource type="PackedScene" uid="uid://d18nyqkrdodqe" path="res://gameObjects/movable/battery/Battery.tscn" id="4_10vwp"]
+[ext_resource type="PackedScene" uid="uid://6bb0w1pdt35p" path="res://gameObjects/mapElements/exit/Exit.tscn" id="5_rrgjb"]
+
+[node name="Level04" type="Node2D"]
+
+[node name="Map" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = ExtResource("1_usp2r")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 196610, 0, 1, 327682, 1, 2, 327682, 1, 3, 327682, 1, 4, 327682, 1, 131072, 196610, 0, 196608, 196610, 0, 65540, 327682, 1, 131076, 327682, 1, 196612, 327682, 1, 65537, 327682, 1, 65538, 327682, 1, 65539, 327682, 1, 131075, 327682, 1, 131074, 327682, 1, 131073, 327682, 1, 196609, 327682, 1, 196610, 327682, 1, 196611, 327682, 1, 65541, 327682, 1, 65542, 196610, 0, 131078, 196610, 0, 196614, 196610, 0, 196613, 327682, 1, 131077, 327682, 1, 5, 327682, 1, 6, 196610, 0, 262150, 327682, 0, 262149, 65538, 1, 262148, 65538, 1, 262147, 65538, 1, 262146, 65538, 1, 262145, 65538, 1, 262144, 262146, 1, 65536, 196610, 0, -131071, 327682, 1, -65535, 327682, 1, -65531, 327682, 1, -65532, 327682, 1, -131068, 327682, 1, -131069, 327682, 1, -131070, 327682, 1, -65534, 327682, 1, -65533, 327682, 1, -131067, 327682, 1, -131066, 196610, 0, -65530, 196610, 0, -65536, 196610, 0, -131072, 196610, 0, -196608, 2, 0, -196607, 65538, 0, -196606, 65538, 0, -196605, 65538, 0, -196604, 65538, 0, -196603, 65538, 0, -196602, 131074, 0)
+
+[node name="Robots" type="Node2D" parent="."]
+
+[node name="Vertical" parent="Robots" instance=ExtResource("2_cdjvb")]
+position = Vector2(72, 56)
+
+[node name="Horizontal" parent="Robots" instance=ExtResource("2_07qy2")]
+position = Vector2(40, 40)
+
+[node name="MapCenter" type="Marker2D" parent="."]
+position = Vector2(56, 16)
+
+[node name="Exit" parent="." instance=ExtResource("5_rrgjb")]
+position = Vector2(88, -24)
+
+[node name="Batteries" type="Node2D" parent="."]
+
+[node name="Battery" parent="Batteries" instance=ExtResource("4_10vwp")]
+position = Vector2(88, -8)

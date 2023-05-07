@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://6bb0w1pdt35p"]
+
+[ext_resource type="Script" path="res://gameObjects/mapElements/exit/Exit.gd" id="1_bvonj"]
+[ext_resource type="Texture2D" uid="uid://dyk5husexnfnh" path="res://assets/Sprite-0002.png" id="2_qhwc1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55vvt"]
+atlas = ExtResource("2_qhwc1")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ac2x8"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_osffd"]
+size = Vector2(8, 8)
+
+[node name="Exit" type="Node2D"]
+script = ExtResource("1_bvonj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("AtlasTexture_55vvt")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ac2x8")
+
+[node name="ReactArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReactArea"]
+shape = SubResource("RectangleShape2D_osffd")

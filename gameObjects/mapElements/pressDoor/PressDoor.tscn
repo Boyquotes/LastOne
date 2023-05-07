@@ -1,0 +1,153 @@
+[gd_scene load_steps=22 format=3 uid="uid://bhb08ivmw0qis"]
+
+[ext_resource type="Script" path="res://gameObjects/mapElements/pressDoor/PressDoor.gd" id="1_3ejdv"]
+[ext_resource type="Texture2D" uid="uid://dyk5husexnfnh" path="res://assets/Sprite-0002.png" id="3_a5dwt"]
+[ext_resource type="Script" path="res://gameObjects/mapElements/pressDoor/Button.gd" id="3_jbeef"]
+[ext_resource type="Script" path="res://gameObjects/mapElements/pressDoor/DoorSprite.gd" id="3_m0d0d"]
+[ext_resource type="Script" path="res://gameObjects/mapElements/pressDoor/PadSprite.gd" id="4_kf5wc"]
+[ext_resource type="PackedScene" uid="uid://b5kpio3uv805m" path="res://components/ActivateComponent.tscn" id="5_7l25i"]
+[ext_resource type="PackedScene" uid="uid://b571ig5opyff7" path="res://components/PushLayerComponent.tscn" id="7_nj5b3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wap7f"]
+atlas = ExtResource("3_a5dwt")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p00mj"]
+atlas = ExtResource("3_a5dwt")
+region = Rect2(16, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cvnt"]
+atlas = ExtResource("3_a5dwt")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vinsx"]
+atlas = ExtResource("3_a5dwt")
+region = Rect2(48, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwght"]
+atlas = ExtResource("3_a5dwt")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wfpl"]
+atlas = ExtResource("3_a5dwt")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm2uw"]
+atlas = ExtResource("3_a5dwt")
+region = Rect2(32, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20mve"]
+atlas = ExtResource("3_a5dwt")
+region = Rect2(48, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0x6et"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wap7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p00mj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cvnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vinsx")
+}],
+"loop": false,
+"name": &"horizontal",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwght")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wfpl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xm2uw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20mve")
+}],
+"loop": false,
+"name": &"vertical",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dpsx3"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qw7s8"]
+atlas = ExtResource("3_a5dwt")
+region = Rect2(64, 48, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltqnv"]
+size = Vector2(8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3jle"]
+atlas = ExtResource("3_a5dwt")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_780iv"]
+size = Vector2(8, 8)
+
+[node name="PressDoor" type="Node2D"]
+script = ExtResource("1_3ejdv")
+
+[node name="DoorSprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, 0)
+sprite_frames = SubResource("SpriteFrames_0x6et")
+animation = &"vertical"
+script = ExtResource("3_m0d0d")
+
+[node name="Area2D" type="Area2D" parent="DoorSprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorSprite/Area2D"]
+shape = SubResource("RectangleShape2D_dpsx3")
+
+[node name="PadSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-16, 0)
+texture = SubResource("AtlasTexture_qw7s8")
+script = ExtResource("4_kf5wc")
+
+[node name="ActivateComponent" parent="PadSprite" node_paths=PackedStringArray("sprite") instance=ExtResource("5_7l25i")]
+initial_color = Color(0.305882, 0.290196, 0.305882, 1)
+active_color = Color(0.854902, 0.831373, 0.368627, 1)
+sprite = NodePath("..")
+
+[node name="PushLayerComponent" parent="PadSprite" instance=ExtResource("7_nj5b3")]
+
+[node name="Area2D" type="Area2D" parent="PadSprite"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PadSprite/Area2D"]
+shape = SubResource("RectangleShape2D_ltqnv")
+
+[node name="Button" type="Sprite2D" parent="."]
+modulate = Color(0.305882, 0.290196, 0.305882, 1)
+texture_filter = 1
+position = Vector2(-16, 20)
+texture = SubResource("AtlasTexture_i3jle")
+script = ExtResource("3_jbeef")
+
+[node name="PushLayerComponent" parent="Button" instance=ExtResource("7_nj5b3")]
+
+[node name="ActivateComponent" parent="Button" instance=ExtResource("5_7l25i")]
+initial_color = Color(0.305882, 0.290196, 0.305882, 1)
+active_color = Color(0.427451, 0.666667, 0.172549, 1)
+
+[node name="Area2D" type="Area2D" parent="Button"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button/Area2D"]
+shape = SubResource("RectangleShape2D_780iv")
+
+[connection signal="area_entered" from="PadSprite/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="PadSprite/Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="Button/Area2D" to="." method="_on_button_area_entered"]
+[connection signal="area_exited" from="Button/Area2D" to="." method="_on_button_area_exited"]

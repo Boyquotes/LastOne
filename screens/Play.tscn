@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=3 uid="uid://dlqjd73hpj33m"]
+
+[ext_resource type="Script" path="res://screens/Play.gd" id="1_1vlrp"]
+[ext_resource type="Texture2D" uid="uid://dyk5husexnfnh" path="res://assets/Sprite-0002.png" id="2_wrkxl"]
+[ext_resource type="Shader" path="res://screens/Crt.gdshader" id="3_bmsre"]
+[ext_resource type="Shader" path="res://screens/Transition.gdshader" id="3_lbhet"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7gobd"]
+shader = ExtResource("3_bmsre")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.196
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 0.1
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.0
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.03
+shader_parameter/aberration = 0.01
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.3
+shader_parameter/vignette_opacity = 1.0
+
+[sub_resource type="Theme" id="Theme_tgcjy"]
+default_font_size = 16
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0wnx"]
+atlas = ExtResource("2_wrkxl")
+region = Rect2(2.08165e-12, 96, 16, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tnfkg"]
+shader = ExtResource("3_lbhet")
+shader_parameter/circle_size = 0.0
+
+[node name="Play" type="Node2D"]
+script = ExtResource("1_1vlrp")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="CrtLayer" type="ColorRect" parent="Camera2D/CanvasLayer"]
+material = SubResource("ShaderMaterial_7gobd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 32.0
+offset_bottom = 32.0
+scale = Vector2(4, 4)
+
+[node name="Button" type="TextureButton" parent="Camera2D/CanvasLayer/MarginContainer"]
+texture_filter = 3
+layout_mode = 2
+theme = SubResource("Theme_tgcjy")
+texture_normal = SubResource("AtlasTexture_b0wnx")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Camera2D/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch_mode = 0
+
+[node name="ScreenTransition" type="ColorRect" parent="Camera2D/CanvasLayer/AspectRatioContainer"]
+material = SubResource("ShaderMaterial_tnfkg")
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RevertTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="button_down" from="Camera2D/CanvasLayer/MarginContainer/Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Camera2D/CanvasLayer/MarginContainer/Button" to="." method="_on_button_button_up"]
+[connection signal="timeout" from="RevertTimer" to="." method="_on_revert_timer_timeout"]

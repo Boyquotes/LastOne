@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5g718b4ox6ea"]
+
+[ext_resource type="TileSet" uid="uid://bey0604f4dpdg" path="res://assets/tilemap.tres" id="1_fbyft"]
+[ext_resource type="PackedScene" uid="uid://bmbqxnvqc4gue" path="res://gameObjects/movable/horizontal/Horizontal.tscn" id="3_v1jx8"]
+[ext_resource type="PackedScene" uid="uid://6bb0w1pdt35p" path="res://gameObjects/mapElements/exit/Exit.tscn" id="4_drduw"]
+[ext_resource type="PackedScene" uid="uid://stuhrajpcp6u" path="res://gameObjects/movable/crate/Crate.tscn" id="4_knv1r"]
+
+[node name="Level02" type="Node2D"]
+
+[node name="Map" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = ExtResource("1_fbyft")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 2, 0, 1, 65538, 0, 2, 65538, 0, 3, 65538, 0, 4, 65538, 0, 131072, 196610, 0, 196608, 196610, 0, 65540, 327682, 1, 131076, 327682, 1, 196612, 327682, 1, 65537, 327682, 1, 65538, 327682, 1, 65539, 327682, 1, 131075, 327682, 1, 131074, 327682, 1, 131073, 327682, 1, 196609, 327682, 1, 196610, 327682, 1, 196611, 327682, 1, 65541, 327682, 1, 65542, 327682, 1, 131078, 327682, 1, 196614, 327682, 1, 196613, 327682, 1, 131077, 327682, 1, 5, 65538, 0, 6, 65538, 0, 7, 131074, 0, 65543, 196610, 0, 131079, 196610, 0, 196615, 196610, 0, 262151, 327682, 0, 262150, 65538, 1, 262149, 65538, 1, 262148, 65538, 1, 262147, 65538, 1, 262146, 65538, 1, 262145, 65538, 1, 262144, 262146, 1, 65536, 196610, 0)
+
+[node name="Robots" type="Node2D" parent="."]
+
+[node name="Horizontal" parent="Robots" instance=ExtResource("3_v1jx8")]
+position = Vector2(24, 40)
+
+[node name="MapCenter" type="Marker2D" parent="."]
+position = Vector2(64, 40)
+
+[node name="Exit" parent="." instance=ExtResource("4_drduw")]
+position = Vector2(104, 40)
+
+[node name="Crates" type="Node2D" parent="."]
+
+[node name="Crate" parent="Crates" instance=ExtResource("4_knv1r")]
+position = Vector2(72, 40)
