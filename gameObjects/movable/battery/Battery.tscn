@@ -28,16 +28,14 @@ initial_color = Color(0.34902, 0.490196, 0.807843, 1)
 active_color = Color(0.854902, 0.831373, 0.368627, 1)
 sprite = NodePath("../Sprite2D")
 
-[node name="PushLayerComponent" parent="." instance=ExtResource("4_ppfo6")]
+[node name="PushLayerComponent" parent="." node_paths=PackedStringArray("main_node") instance=ExtResource("4_ppfo6")]
 push_layer = 1
+main_node = NodePath("..")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_6tk87")
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-collide_with_areas = true
 
 [node name="ReactArea" type="Area2D" parent="."]
 collision_layer = 2

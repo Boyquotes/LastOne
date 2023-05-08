@@ -22,7 +22,6 @@ func load_level(levelScene: PackedScene):
 	map_states.clear()
 	
 	for robot in robots:
-		robot.base.connect("robot_selected", self._on_robot_selected)
 		robot.connect("will_move", self._player_moved_robot)
 		
 	current_crates_on_exit = 0

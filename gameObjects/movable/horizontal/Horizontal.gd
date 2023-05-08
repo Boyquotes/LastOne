@@ -1,6 +1,5 @@
 extends Node2D
 
-var base = BaseRobot.new()
 signal will_move
 
 var should_move = false
@@ -10,9 +9,6 @@ var currently_controlled = false
 var timeout = 0.5
 var direction := Vector2.ZERO
 var current_direction: types.Direction = -1
-
-func _ready():
-	base.initialize(self, types.ROBOT_TYPE.horizontal)
 	
 func _input(event):
 	if event is InputEventTouchJoystickStart:
@@ -28,7 +24,7 @@ func _input(event):
 		current_direction = -1
 
 func _physics_process(delta):
-	if base.is_moving:
+	if $PushLayerComponent.is_moving:
 		return
 		
 	if should_move && (current_direction == types.Direction.left || current_direction == types.Direction.right):
@@ -52,13 +48,11 @@ func _physics_process(delta):
 		$MovementTimer.wait_time = timeout
 		$MovementTimer.start()
 		
-		push(direction)
+		$PushLayerComponent.push(direction)
 		emit_signal("will_move")
 	
 	direction = Vector2.ZERO
 
-func push(direction: Vector2):
-	return base.push(direction)
 	
 func moved_left():
 	$Sprite2D.texture.region = Rect2(32, 32, 16, 16)

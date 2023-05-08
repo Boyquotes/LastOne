@@ -15,6 +15,10 @@ size = Vector2(16, 16)
 z_index = 1
 script = ExtResource("1_e2mhw")
 
+[node name="PushLayerComponent" parent="." node_paths=PackedStringArray("main_node") instance=ExtResource("3_uxwhs")]
+push_layer = 1
+main_node = NodePath("..")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = SubResource("AtlasTexture_lmv6q")
@@ -24,16 +28,10 @@ texture = SubResource("AtlasTexture_lmv6q")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_60s3d")
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-collide_with_areas = true
-
 [node name="MovementTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 autostart = true
-
-[node name="PushLayerComponent" parent="." instance=ExtResource("3_uxwhs")]
-push_layer = 1
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="timeout" from="MovementTimer" to="." method="_on_movement_timer_timeout"]

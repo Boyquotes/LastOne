@@ -15,8 +15,9 @@ size = Vector2(16, 16)
 z_index = 1
 script = ExtResource("1_r8rox")
 
-[node name="PushLayerComponent" parent="." instance=ExtResource("2_k318w")]
+[node name="PushLayerComponent" parent="." node_paths=PackedStringArray("main_node") instance=ExtResource("2_k318w")]
 push_layer = 1
+main_node = NodePath("..")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -26,9 +27,6 @@ texture = SubResource("AtlasTexture_ftumo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_tnhtf")
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-collide_with_areas = true
 
 [node name="MovementTimer" type="Timer" parent="."]
 autostart = true
