@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwgmmi3iquahw"]
+
+[ext_resource type="Script" path="res://components/LevelMetadataComponent.gd" id="1_uhse5"]
+
+[node name="LevelMetadataComponent" type="Node2D"]
+script = ExtResource("1_uhse5")

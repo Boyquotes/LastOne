@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmbqxnvqc4gue"]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://gameObjects/movable/horizontal/Horizontal.gd" id="1_e2mhw"]
-[ext_resource type="Texture2D" uid="uid://dyk5husexnfnh" path="res://assets/Sprite-0002.png" id="2_blvj4"]
+[ext_resource type="Texture2D" uid="uid://dyk5husexnfnh" path="res://assets/sprites/Sprite-0002.png" id="2_blvj4"]
 [ext_resource type="PackedScene" uid="uid://b571ig5opyff7" path="res://components/PushLayerComponent.tscn" id="3_uxwhs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lmv6q"]

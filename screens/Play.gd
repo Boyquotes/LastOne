@@ -2,10 +2,10 @@ extends Node2D
 
 var selected_child: Node2D = null
 
-var level1 = preload("res://levels/Level01.tscn")
-var level2 = preload("res://levels/Level02.tscn")
-var level3 = preload("res://levels/Level03.tscn")
-var level4 = preload("res://levels/Level04.tscn")
+var level1 = preload("res://levels/World0/Level01.tscn")
+var level2 = preload("res://levels/World0/Level02.tscn")
+var level3 = preload("res://levels/World0/Level03.tscn")
+var level4 = preload("res://levels/World0/Level04.tscn")
 var test_level = preload("res://levels/LevelTest.tscn")
 
 var level_index = 1
@@ -36,8 +36,6 @@ func load_level(levelScene: PackedScene):
 	
 	var ScreenTransition = $Camera2D/CanvasLayer/AspectRatioContainer/ScreenTransition as ColorRect
 	
-	var smaterial = ScreenTransition.material as ShaderMaterial
-	
 	if current_level:
 		var unload_tween = get_tree().create_tween()
 		unload_tween.set_ease(Tween.EASE_IN_OUT)
@@ -45,6 +43,11 @@ func load_level(levelScene: PackedScene):
 		await unload_tween.finished
 		unload_level()
 		
+	var current_level_label = $Camera2D/CanvasLayer/MarginContainer2/Label as Label
+	
+	var levelMetadataComponent: LevelMetadataComponent = level.get_node("LevelMetadataComponent") if level.has_node("LevelMetadataComponent") else null
+	levelMetadataComponent.set_label_text(current_level_label)
+	
 	current_level = level
 	add_child(level)
 	
@@ -56,13 +59,9 @@ func load_level(levelScene: PackedScene):
 	return level
 	
 func unload_level():
-	var robots = current_level.get_node("Robots").get_children()
-	for robot in robots:
-		robot.base.disconnect("robot_selected", self._on_robot_selected)
-		
 	var crates = current_level.get_node("Crates").get_children()
 	for crate in crates:
-		crate.base.disconnect("on_exit", self._on_crate_entered_exit)
+		crate.disconnect("on_exit", self._on_crate_entered_exit)
 		
 	remove_child(current_level)
 	current_level.queue_free()
@@ -161,13 +160,6 @@ func _process(delta):
 func _player_moved_robot():
 	save_current_state()
 
-func _on_robot_selected(robot: Node2D, robot_type: types.ROBOT_TYPE):
-	var robots = current_level.get_node("Robots").get_children()
-	for robot_in_level in robots:
-		robot_in_level.base.is_selected = false
-	
-	robot.base.is_selected = true
-
 func _on_crate_entered_exit():
 	current_crates_on_exit += 1
 	
@@ -188,7 +180,12 @@ func revert_action():
 			continue
 			
 		var id = node.get_instance_id()
-		node.base.tween_position(state[str(id)] * constants.TILE_SIZE) 
+		if !node.has_node("PushLayerComponent"):
+			# TODO - I should add some error here
+			continue
+
+		var pushLayerComponent: PushLayerComponent = node.get_node("PushLayerComponent")
+		pushLayerComponent.tween_position(state[str(id)] * constants.TILE_SIZE) 
 
 func save_current_state():
 	var state = MapState.new()

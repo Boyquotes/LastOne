@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://e12852g64r5d"]
+
+[ext_resource type="PackedScene" uid="uid://dwgmmi3iquahw" path="res://components/LevelMetadataComponent.tscn" id="1_5b7g1"]
+[ext_resource type="TileSet" uid="uid://cxbv2nqj8182q" path="res://assets/tres/tilemap.tres" id="2_0j85k"]
+[ext_resource type="PackedScene" path="res://gameObjects/movable/vertial/Vertical.tscn" id="3_8hoee"]
+[ext_resource type="PackedScene" path="res://gameObjects/mapElements/exit/Exit.tscn" id="4_shvw2"]
+[ext_resource type="PackedScene" path="res://gameObjects/movable/crate/Crate.tscn" id="5_dn43k"]
+[ext_resource type="PackedScene" path="res://gameObjects/movable/battery/Battery.tscn" id="6_pkm24"]
+[ext_resource type="PackedScene" path="res://gameObjects/movable/dummy_crate/DummyCrate.tscn" id="7_crltn"]
+[ext_resource type="PackedScene" path="res://gameObjects/movable/horizontal/Horizontal.tscn" id="8_02naw"]
+
+[node name="LevelPlaceholder" type="Node2D"]
+
+[node name="LevelMetadataComponent" parent="." instance=ExtResource("1_5b7g1")]
+level_number = 99
+world_number = 99
+
+[node name="MapCenter" type="Marker2D" parent="."]
+position = Vector2(40, 64)
+
+[node name="Map" type="TileMap" parent="."]
+z_index = -1
+texture_filter = 1
+tile_set = ExtResource("2_0j85k")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 327682, 1, 1, 327682, 1, 2, 327682, 1, 3, 327682, 1, 4, 327682, 1, 65540, 327682, 1, 131076, 327682, 1, 196612, 327682, 1, 262148, 327682, 1, 327684, 327682, 1, 393220, 327682, 1, 65536, 327682, 1, 131072, 327682, 1, 196608, 327682, 1, 262144, 327682, 1, 327680, 327682, 1, 393216, 327682, 1, 458756, 327682, 1, 458752, 327682, 1, 458753, 327682, 1, 458754, 327682, 1, 458755, 327682, 1, 65537, 327682, 1, 65538, 327682, 1, 65539, 327682, 1, 131075, 327682, 1, 131074, 327682, 1, 131073, 327682, 1, 196609, 327682, 1, 262145, 327682, 1, 262146, 327682, 1, 196610, 327682, 1, 196611, 327682, 1, 262147, 327682, 1, 327683, 327682, 1, 327682, 327682, 1, 327681, 327682, 1, 393217, 327682, 1, 393218, 327682, 1, 393219, 327682, 1)
+
+[node name="Robots" type="Node2D" parent="."]
+
+[node name="Horizontal" parent="Robots" instance=ExtResource("8_02naw")]
+position = Vector2(40, 120)
+
+[node name="Vertical" parent="Robots" instance=ExtResource("3_8hoee")]
+position = Vector2(24, 120)
+
+[node name="Exit" parent="." instance=ExtResource("4_shvw2")]
+position = Vector2(40, 24)
+
+[node name="Batteries" type="Node2D" parent="."]
+
+[node name="Battery" parent="Batteries" instance=ExtResource("6_pkm24")]
+position = Vector2(8, 72)
+
+[node name="Crates" type="Node2D" parent="."]
+position = Vector2(40, 56)
+
+[node name="Crate" parent="Crates" instance=ExtResource("5_dn43k")]
+position = Vector2(-32, 32)
+
+[node name="DummyCrate" parent="." instance=ExtResource("7_crltn")]
+position = Vector2(8, 56)

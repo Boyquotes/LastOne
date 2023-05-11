@@ -19,15 +19,15 @@ func push(direction: Vector2):
 	
 	var collider = $RayCast2D.get_collider()
 	if !collider && direction != Vector2.ZERO:
-		_tween_position(main_node.position + direction * constants.TILE_SIZE)
+		tween_position(main_node.position + direction * constants.TILE_SIZE)
 		return true
 		
 	if collider:
 		var collision_shape = collider.get_node("CollisionShape2D")
 		# hacky because for some reason disabling collision shape doesnt work properly with raycasts
 		if collision_shape && collision_shape.disabled:
-			_tween_position(main_node.position + direction * constants.TILE_SIZE)	
-			return true	
+			tween_position(main_node.position + direction * constants.TILE_SIZE)	
+			return true
 		
 		if !collider.get_parent().has_node("PushLayerComponent"):
 			return false
@@ -37,16 +37,16 @@ func push(direction: Vector2):
 		var same_layer = colliderPushLayerComponent.push_layer == push_layer
 		
 		if !same_layer:
-			_tween_position(main_node.position + direction * constants.TILE_SIZE)
+			tween_position(main_node.position + direction * constants.TILE_SIZE)
 			return true
 		
 		var was_pushed = colliderPushLayerComponent.push(direction)
 		if was_pushed:
-			_tween_position(main_node.position + direction * constants.TILE_SIZE)
+			tween_position(main_node.position + direction * constants.TILE_SIZE)
 
 		return was_pushed
 
-func _tween_position(new_position: Vector2):
+func tween_position(new_position: Vector2):
 	var tween = create_tween()
 	tween.tween_property(main_node, "position", new_position, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
 	is_moving = true

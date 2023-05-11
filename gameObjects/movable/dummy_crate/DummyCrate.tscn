@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="PackedScene" uid="uid://b571ig5opyff7" path="res://components/PushLayerComponent.tscn" id="1_sdm1w"]
+[ext_resource type="Texture2D" uid="uid://dyk5husexnfnh" path="res://assets/sprites/Sprite-0002.png" id="2_4ou41"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0t0jt"]
+atlas = ExtResource("2_4ou41")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vywg5"]
+size = Vector2(16, 16)
+
+[node name="DummyCrate" type="Node2D" groups=["save_state"]]
+
+[node name="PushLayerComponent" parent="." node_paths=PackedStringArray("main_node") instance=ExtResource("1_sdm1w")]
+push_layer = 1
+main_node = NodePath("..")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("AtlasTexture_0t0jt")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_vywg5")

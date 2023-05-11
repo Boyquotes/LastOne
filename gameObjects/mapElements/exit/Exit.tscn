@@ -1,14 +1,39 @@
-[gd_scene load_steps=6 format=3 uid="uid://6bb0w1pdt35p"]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://gameObjects/mapElements/exit/Exit.gd" id="1_bvonj"]
-[ext_resource type="Texture2D" uid="uid://dyk5husexnfnh" path="res://assets/Sprite-0002.png" id="2_qhwc1"]
+[ext_resource type="Texture2D" uid="uid://dyk5husexnfnh" path="res://assets/sprites/Sprite-0002.png" id="2_qhwc1"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_55vvt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0esj"]
 atlas = ExtResource("2_qhwc1")
-region = Rect2(32, 16, 16, 16)
+region = Rect2(0, 112, 16, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ac2x8"]
-size = Vector2(16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1dds"]
+atlas = ExtResource("2_qhwc1")
+region = Rect2(16, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_affne"]
+atlas = ExtResource("2_qhwc1")
+region = Rect2(32, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rrco1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0esj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1dds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_affne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1dds")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_osffd"]
 size = Vector2(8, 8)
@@ -16,14 +41,11 @@ size = Vector2(8, 8)
 [node name="Exit" type="Node2D"]
 script = ExtResource("1_bvonj")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-texture = SubResource("AtlasTexture_55vvt")
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_ac2x8")
+sprite_frames = SubResource("SpriteFrames_rrco1")
+autoplay = "default"
+frame_progress = 0.370981
 
 [node name="ReactArea" type="Area2D" parent="."]
 collision_layer = 2

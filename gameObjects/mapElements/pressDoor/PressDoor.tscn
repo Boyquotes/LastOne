@@ -1,7 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://bhb08ivmw0qis"]
+[gd_scene load_steps=22 format=3]
 
 [ext_resource type="Script" path="res://gameObjects/mapElements/pressDoor/PressDoor.gd" id="1_3ejdv"]
-[ext_resource type="Texture2D" uid="uid://dyk5husexnfnh" path="res://assets/Sprite-0002.png" id="3_a5dwt"]
+[ext_resource type="Texture2D" uid="uid://dyk5husexnfnh" path="res://assets/sprites/Sprite-0002.png" id="3_a5dwt"]
 [ext_resource type="Script" path="res://gameObjects/mapElements/pressDoor/Button.gd" id="3_jbeef"]
 [ext_resource type="Script" path="res://gameObjects/mapElements/pressDoor/DoorSprite.gd" id="3_m0d0d"]
 [ext_resource type="Script" path="res://gameObjects/mapElements/pressDoor/PadSprite.gd" id="4_kf5wc"]

@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://d18nyqkrdodqe"]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://gameObjects/movable/battery/Battery.gd" id="1_k7lty"]
-[ext_resource type="Texture2D" uid="uid://dyk5husexnfnh" path="res://assets/Sprite-0002.png" id="2_hbaa5"]
+[ext_resource type="Texture2D" uid="uid://dyk5husexnfnh" path="res://assets/sprites/Sprite-0002.png" id="2_hbaa5"]
 [ext_resource type="PackedScene" uid="uid://b5kpio3uv805m" path="res://components/ActivateComponent.tscn" id="3_8k281"]
 [ext_resource type="PackedScene" uid="uid://b571ig5opyff7" path="res://components/PushLayerComponent.tscn" id="4_ppfo6"]
 

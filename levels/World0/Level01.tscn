@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8lsebd7oirmt"]
+
+[ext_resource type="PackedScene" uid="uid://dwgmmi3iquahw" path="res://components/LevelMetadataComponent.tscn" id="1_1jlvc"]
+[ext_resource type="TileSet" uid="uid://cxbv2nqj8182q" path="res://assets/tres/tilemap.tres" id="2_7mxcr"]
+[ext_resource type="PackedScene" path="res://gameObjects/movable/vertial/Vertical.tscn" id="3_38a54"]
+[ext_resource type="PackedScene" path="res://gameObjects/mapElements/exit/Exit.tscn" id="4_uvvsu"]
+[ext_resource type="PackedScene" path="res://gameObjects/movable/crate/Crate.tscn" id="5_i2ofb"]
+[ext_resource type="PackedScene" path="res://gameObjects/movable/battery/Battery.tscn" id="6_6loge"]
+[ext_resource type="PackedScene" path="res://gameObjects/movable/dummy_crate/DummyCrate.tscn" id="7_1066g"]
+
+[node name="Level01" type="Node2D"]
+
+[node name="LevelMetadataComponent" parent="." instance=ExtResource("1_1jlvc")]
+level_number = 1
+world_number = 1
+
+[node name="MapCenter" type="Marker2D" parent="."]
+position = Vector2(40, 64)
+
+[node name="Map" type="TileMap" parent="."]
+z_index = -1
+texture_filter = 1
+tile_set = ExtResource("2_7mxcr")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 2, 0, 1, 65538, 0, 2, 65538, 0, 3, 65538, 0, 4, 131074, 0, 65540, 262146, 0, 131076, 262146, 0, 196612, 262146, 0, 262148, 262146, 0, 327684, 262146, 0, 393220, 262146, 0, 65536, 262146, 0, 131072, 262146, 0, 196608, 262146, 0, 262144, 262146, 0, 327680, 262146, 0, 393216, 262146, 0, 458756, 327682, 0, 458752, 262146, 1, 458753, 65538, 1, 458754, 65538, 1, 458755, 65538, 1, 65537, 327682, 1, 65538, 327682, 1, 65539, 327682, 1, 131075, 327682, 1, 131074, 327682, 1, 131073, 327682, 1, 196609, 327682, 1, 262145, 327682, 1, 262146, 327682, 1, 196610, 327682, 1, 196611, 327682, 1, 262147, 327682, 1, 327683, 327682, 1, 327682, 327682, 1, 327681, 327682, 1, 393217, 327682, 1, 393218, 327682, 1, 393219, 327682, 1)
+
+[node name="Robots" type="Node2D" parent="."]
+
+[node name="Vertical" parent="Robots" instance=ExtResource("3_38a54")]
+position = Vector2(40, 88)
+
+[node name="Exit" parent="." instance=ExtResource("4_uvvsu")]
+position = Vector2(40, 24)
+
+[node name="Batteries" type="Node2D" parent="."]
+
+[node name="Crates" type="Node2D" parent="."]
+position = Vector2(40, 56)
+
+[node name="Crate" parent="Crates" instance=ExtResource("5_i2ofb")]
+
+[node name="Battery" parent="." instance=ExtResource("6_6loge")]
+position = Vector2(24, 72)
+
+[node name="DummyCrate" parent="." instance=ExtResource("7_1066g")]
+position = Vector2(40, 72)

@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlqjd73hpj33m"]
+[gd_scene load_steps=10 format=3 uid="uid://bc6s80xt28kv8"]
 
 [ext_resource type="Script" path="res://screens/Play.gd" id="1_1vlrp"]
-[ext_resource type="Texture2D" uid="uid://dyk5husexnfnh" path="res://assets/Sprite-0002.png" id="2_wrkxl"]
-[ext_resource type="Shader" path="res://screens/Crt.gdshader" id="3_bmsre"]
-[ext_resource type="Shader" path="res://screens/Transition.gdshader" id="3_lbhet"]
+[ext_resource type="Shader" path="res://assets/shaders/Crt.gdshader" id="2_ba5r5"]
+[ext_resource type="FontFile" uid="uid://c45jflungici8" path="res://assets/fonts/upheavtt.ttf" id="3_lfdjf"]
+[ext_resource type="Texture2D" uid="uid://dyk5husexnfnh" path="res://assets/sprites/Sprite-0002.png" id="4_47hed"]
+[ext_resource type="Shader" path="res://assets/shaders/Transition.gdshader" id="5_qfkuo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7gobd"]
-shader = ExtResource("3_bmsre")
+shader = ExtResource("2_ba5r5")
 shader_parameter/overlay = false
 shader_parameter/scanlines_opacity = 0.196
 shader_parameter/scanlines_width = 0.25
@@ -33,11 +34,11 @@ shader_parameter/vignette_opacity = 1.0
 default_font_size = 16
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b0wnx"]
-atlas = ExtResource("2_wrkxl")
+atlas = ExtResource("4_47hed")
 region = Rect2(2.08165e-12, 96, 16, 16)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tnfkg"]
-shader = ExtResource("3_lbhet")
+shader = ExtResource("5_qfkuo")
 shader_parameter/circle_size = 0.0
 
 [node name="Play" type="Node2D"]
@@ -57,6 +58,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Camera2D/CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.5
+offset_top = -40.0
+offset_right = 25.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer/MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_lfdjf")
+theme_override_font_sizes/font_size = 32
+text = "01 - 01"
 
 [node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer"]
 offset_left = 16.0

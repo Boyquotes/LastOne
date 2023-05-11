@@ -1,11 +1,11 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://bey0604f4dpdg"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://cxbv2nqj8182q"]
 
-[ext_resource type="Texture2D" uid="uid://uy4w4dk8fgc4" path="res://assets/Sprite-0001.png" id="1_fjkbs"]
-[ext_resource type="Texture2D" uid="uid://81agfv8ot3n8" path="res://assets/game-assets.png" id="2_t2rja"]
-[ext_resource type="Texture2D" uid="uid://dyk5husexnfnh" path="res://assets/Sprite-0002.png" id="3_uybwo"]
+[ext_resource type="Texture2D" uid="uid://uy4w4dk8fgc4" path="res://assets/_trash/Sprite-0001.png" id="1_qwo2s"]
+[ext_resource type="Texture2D" uid="uid://81agfv8ot3n8" path="res://assets/_trash/game-assets.png" id="2_s83re"]
+[ext_resource type="Texture2D" uid="uid://dyk5husexnfnh" path="res://assets/sprites/Sprite-0002.png" id="3_yx3g1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kjmsh"]
-texture = ExtResource("1_fjkbs")
+texture = ExtResource("1_qwo2s")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -24,7 +24,7 @@ texture = ExtResource("1_fjkbs")
 4:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ouw72"]
-texture = ExtResource("2_t2rja")
+texture = ExtResource("2_s83re")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -54,7 +54,7 @@ texture = ExtResource("2_t2rja")
 8:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wmonw"]
-texture = ExtResource("3_uybwo")
+texture = ExtResource("3_yx3g1")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
