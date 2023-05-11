@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b8lsebd7oirmt"]
 
 [ext_resource type="PackedScene" uid="uid://dwgmmi3iquahw" path="res://components/LevelMetadataComponent.tscn" id="1_1jlvc"]
-[ext_resource type="TileSet" uid="uid://cxbv2nqj8182q" path="res://assets/tres/tilemap.tres" id="2_7mxcr"]
+[ext_resource type="TileSet" uid="uid://dhm6027rcsgug" path="res://assets/tres/BlueTileset.tres" id="2_akcqq"]
 [ext_resource type="PackedScene" path="res://gameObjects/movable/vertial/Vertical.tscn" id="3_38a54"]
 [ext_resource type="PackedScene" path="res://gameObjects/mapElements/exit/Exit.tscn" id="4_uvvsu"]
 [ext_resource type="PackedScene" path="res://gameObjects/movable/crate/Crate.tscn" id="5_i2ofb"]
@@ -20,9 +20,9 @@ position = Vector2(40, 64)
 [node name="Map" type="TileMap" parent="."]
 z_index = -1
 texture_filter = 1
-tile_set = ExtResource("2_7mxcr")
+tile_set = ExtResource("2_akcqq")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 2, 0, 1, 65538, 0, 2, 65538, 0, 3, 65538, 0, 4, 131074, 0, 65540, 262146, 0, 131076, 262146, 0, 196612, 262146, 0, 262148, 262146, 0, 327684, 262146, 0, 393220, 262146, 0, 65536, 262146, 0, 131072, 262146, 0, 196608, 262146, 0, 262144, 262146, 0, 327680, 262146, 0, 393216, 262146, 0, 458756, 327682, 0, 458752, 262146, 1, 458753, 65538, 1, 458754, 65538, 1, 458755, 65538, 1, 65537, 327682, 1, 65538, 327682, 1, 65539, 327682, 1, 131075, 327682, 1, 131074, 327682, 1, 131073, 327682, 1, 196609, 327682, 1, 262145, 327682, 1, 262146, 327682, 1, 196610, 327682, 1, 196611, 327682, 1, 262147, 327682, 1, 327683, 327682, 1, 327682, 327682, 1, 327681, 327682, 1, 393217, 327682, 1, 393218, 327682, 1, 393219, 327682, 1)
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 65536, 0, 2, 65536, 0, 3, 65536, 0, 4, 131072, 0, 65540, 196608, 0, 131076, 196608, 0, 196612, 196608, 0, 262148, 196608, 0, 327684, 196608, 0, 65536, 196608, 0, 131072, 196608, 0, 196608, 196608, 0, 262144, 196608, 0, 327680, 196608, 0, 393216, 196608, 0, 458756, 327680, 0, 458752, 262144, 0, 458753, 65536, 0, 458754, 65536, 0, 458755, 65536, 0, 65537, 0, 1, 65538, 0, 1, 65539, 0, 1, 131075, 0, 1, 131074, 0, 1, 131073, 0, 1, 196609, 0, 1, 262145, 0, 1, 262146, 0, 1, 196610, 0, 1, 196611, 0, 1, 262147, 0, 1, 327682, 0, 1, 327681, 0, 1, 393217, 0, 1, 393218, 0, 1, 393220, 196608, 0, 327683, 0, 1, 393219, 0, 1)
 
 [node name="Robots" type="Node2D" parent="."]
 

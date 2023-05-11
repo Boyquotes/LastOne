@@ -1,13 +1,13 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=7 format=3 uid="uid://cgi04uryp3id2"]
 
 [ext_resource type="PackedScene" uid="uid://dwgmmi3iquahw" path="res://components/LevelMetadataComponent.tscn" id="1_1wf4q"]
-[ext_resource type="TileSet" uid="uid://ljswi85iqvvc" path="res://assets/tres/tilemap.tres" id="2_hxaqu"]
+[ext_resource type="TileSet" uid="uid://dhm6027rcsgug" path="res://assets/tres/BlueTileset.tres" id="2_6r7be"]
 [ext_resource type="PackedScene" path="res://gameObjects/movable/vertial/Vertical.tscn" id="3_ufrkn"]
 [ext_resource type="PackedScene" path="res://gameObjects/movable/horizontal/Horizontal.tscn" id="4_y42h4"]
 [ext_resource type="PackedScene" path="res://gameObjects/mapElements/exit/Exit.tscn" id="5_ll3sl"]
 [ext_resource type="PackedScene" path="res://gameObjects/movable/crate/Crate.tscn" id="6_4i0yi"]
 
-[node name="Level04" type="Node2D"]
+[node name="Level03" type="Node2D"]
 
 [node name="LevelMetadataComponent" parent="." instance=ExtResource("1_1wf4q")]
 level_number = 3
@@ -15,9 +15,9 @@ world_number = 1
 
 [node name="Map" type="TileMap" parent="."]
 texture_filter = 1
-tile_set = ExtResource("2_hxaqu")
+tile_set = ExtResource("2_6r7be")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 196610, 0, 1, 327682, 1, 2, 327682, 1, 3, 327682, 1, 4, 327682, 1, 131072, 196610, 0, 196608, 196610, 0, 65540, 327682, 1, 131076, 327682, 1, 196612, 327682, 1, 65537, 327682, 1, 65538, 327682, 1, 65539, 327682, 1, 131075, 327682, 1, 131074, 327682, 1, 131073, 327682, 1, 196609, 327682, 1, 196610, 327682, 1, 196611, 327682, 1, 65541, 327682, 1, 65542, 196610, 0, 131078, 196610, 0, 196614, 196610, 0, 196613, 327682, 1, 131077, 327682, 1, 5, 327682, 1, 6, 196610, 0, 262150, 327682, 0, 262149, 65538, 1, 262148, 65538, 1, 262147, 65538, 1, 262146, 65538, 1, 262145, 65538, 1, 262144, 262146, 1, 65536, 196610, 0, -131071, 327682, 1, -65535, 327682, 1, -65531, 327682, 1, -65532, 327682, 1, -131068, 327682, 1, -131069, 327682, 1, -131070, 327682, 1, -65534, 327682, 1, -65533, 327682, 1, -131067, 327682, 1, -131066, 196610, 0, -65530, 196610, 0, -65536, 196610, 0, -131072, 196610, 0, -196608, 2, 0, -196607, 65538, 0, -196606, 65538, 0, -196605, 65538, 0, -196604, 65538, 0, -196603, 65538, 0, -196602, 131074, 0)
+layer_0/tile_data = PackedInt32Array(0, 196608, 0, 1, 0, 1, 2, 0, 1, 3, 0, 1, 4, 0, 1, 131072, 196608, 0, 196608, 196608, 0, 65540, 0, 1, 131076, 0, 1, 196612, 0, 1, 65537, 0, 1, 65538, 0, 1, 65539, 0, 1, 131075, 0, 1, 131074, 0, 1, 131073, 0, 1, 196609, 0, 1, 196610, 0, 1, 196611, 0, 1, 65541, 0, 1, 65542, 196608, 0, 131078, 196608, 0, 196614, 196608, 0, 196613, 0, 1, 131077, 0, 1, 5, 0, 1, 6, 196608, 0, 262150, 327680, 0, 262149, 65536, 0, 262148, 65536, 0, 262147, 65536, 0, 262146, 65536, 0, 262145, 65536, 0, 262144, 262144, 0, 65536, 196608, 0, -131071, 0, 1, -65535, 0, 1, -65531, 0, 1, -65532, 0, 1, -131068, 0, 1, -131069, 0, 1, -131070, 0, 1, -65534, 0, 1, -65533, 0, 1, -131067, 0, 1, -131066, 196608, 0, -65530, 196608, 0, -65536, 196608, 0, -131072, 196608, 0, -196608, 0, 0, -196607, 65536, 0, -196606, 65536, 0, -196605, 65536, 0, -196604, 65536, 0, -196603, 65536, 0, -196602, 131072, 0)
 
 [node name="Robots" type="Node2D" parent="."]
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bc6s80xt28kv8"]
+[gd_scene load_steps=11 format=3 uid="uid://bc6s80xt28kv8"]
 
 [ext_resource type="Script" path="res://screens/Play.gd" id="1_1vlrp"]
+[ext_resource type="PackedScene" uid="uid://m8dvxccdw305" path="res://gameObjects/other/SwipeInputManager.tscn" id="2_5e1g3"]
 [ext_resource type="Shader" path="res://assets/shaders/Crt.gdshader" id="2_ba5r5"]
 [ext_resource type="FontFile" uid="uid://c45jflungici8" path="res://assets/fonts/upheavtt.ttf" id="3_lfdjf"]
 [ext_resource type="Texture2D" uid="uid://dyk5husexnfnh" path="res://assets/sprites/Sprite-0002.png" id="4_47hed"]
@@ -43,6 +44,8 @@ shader_parameter/circle_size = 0.0
 
 [node name="Play" type="Node2D"]
 script = ExtResource("1_1vlrp")
+
+[node name="SwipeInputManager" parent="." instance=ExtResource("2_5e1g3")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)

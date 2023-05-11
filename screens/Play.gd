@@ -66,94 +66,11 @@ func unload_level():
 	remove_child(current_level)
 	current_level.queue_free()
 	
-var is_swiping = false
-var touchStartPosition = Vector2.ZERO	
-var touch_start_time = 0
-const minSwipeDistance = 100; 
-
-func create_custom_swipe_event(direction: types.Direction):
-	var event = InputEventScreenSwipe.new()
-	event.direction = direction
-	return event
-	
-func swipe_start(event: InputEventScreenTouch):
-	touch_start_time = Time.get_unix_time_from_system()
-	touchStartPosition = event.position
-	
-func swipe_end(event: InputEventScreenTouch):
-	var delta = event.position - touchStartPosition
-	var time = Time.get_unix_time_from_system() - touch_start_time
-	
-	if time > 0.25:
-		return
-		
-	
-	var swipe_input_event
-	if abs(delta.x) >= minSwipeDistance || abs(delta.y) >= minSwipeDistance:
-		if abs(delta.x) > abs(delta.y):
-			if delta.x > 0:
-				swipe_input_event = create_custom_swipe_event(types.Direction.right)
-			else:
-				swipe_input_event = create_custom_swipe_event(types.Direction.left)
-		else: 
-			if delta.y > 0:
-				swipe_input_event = create_custom_swipe_event(types.Direction.down)
-			else:
-				swipe_input_event = create_custom_swipe_event(types.Direction.up)
-		
-	if swipe_input_event:
-		Input.parse_input_event(swipe_input_event)
-
-var prev_drag_position := Vector2.ZERO
-var delta := Vector2.ZERO
-var current_direction: types.Direction = -1
-var prev_direction: types.Direction = -1
-
-func _input(event):
-	if event is InputEventScreenDrag && is_swiping:
-		delta = event.position - prev_drag_position
-		prev_drag_position = event.position
-		
-	if delta.length() > 5 && is_swiping:
-		if abs(delta.x) > abs(delta.y) && (current_direction == -1 || current_direction == types.Direction.left || current_direction == types.Direction.right):
-			if delta.x > 0:
-				current_direction = types.Direction.right
-			elif delta.x < 0:
-				current_direction = types.Direction.left
-		elif abs(delta.x) < abs(delta.y) && (current_direction == -1 || current_direction == types.Direction.down || current_direction == types.Direction.up): 
-			if delta.y > 0:
-				current_direction = types.Direction.down
-			else:
-				current_direction = types.Direction.up
-		
-		if current_direction != prev_direction:
-			var new_event = InputEventTouchJoystickChange.new()
-			new_event.direction = current_direction
-			Input.parse_input_event(new_event)
-			
-		prev_direction = current_direction
-	
-	if event is InputEventScreenTouch && event.pressed == true:
-		var new_event = InputEventTouchJoystickStart.new()
-		Input.parse_input_event(new_event)
-		prev_drag_position = event.position
-		is_swiping = true	
-	
-	if event is InputEventScreenTouch && event.pressed == false:
-		var new_event = InputEventTouchJoystickEnd.new()
-		Input.parse_input_event(new_event)
-		is_swiping = false
-		current_direction = -1
-		prev_direction = -1
-		delta = Vector2.ZERO
-		
 func _ready():
-	var screen_size = DisplayServer.screen_get_size()
-	
 	load_level(levels[level_index])
 	
 	
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		revert_action()
 		
