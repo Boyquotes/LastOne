@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3]
+[gd_scene load_steps=22 format=3 uid="uid://4rbxcyd5l78h"]
 
 [ext_resource type="Script" path="res://gameObjects/mapElements/pressDoor/PressDoor.gd" id="1_3ejdv"]
 [ext_resource type="Texture2D" uid="uid://dyk5husexnfnh" path="res://assets/sprites/Sprite-0002.png" id="3_a5dwt"]

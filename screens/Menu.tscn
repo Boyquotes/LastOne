@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb6bwvi214elw"]
+
+[ext_resource type="Script" path="res://screens/Menu.gd" id="1_uc86w"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_uc86w")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_top = 104.0
+offset_right = 60.0
+offset_bottom = 130.0
+text = "Test123"
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Save"
+
+[node name="Button2" type="Button" parent="CanvasLayer"]
+offset_top = 64.0
+offset_right = 46.0
+offset_bottom = 95.0
+text = "Load"
+
+[node name="Button3" type="Button" parent="CanvasLayer"]
+offset_top = 32.0
+offset_right = 74.0
+offset_bottom = 63.0
+text = "Increase"
+
+[connection signal="button_down" from="CanvasLayer/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="CanvasLayer/Button2" to="." method="_on_button_2_button_down"]
+[connection signal="button_down" from="CanvasLayer/Button3" to="." method="_on_button_3_button_down"]

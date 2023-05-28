@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://dygth5sy2dse2"]
+
+[ext_resource type="PackedScene" uid="uid://dwgmmi3iquahw" path="res://components/LevelMetadataComponent.tscn" id="1_5b7g1"]
+[ext_resource type="PackedScene" path="res://gameObjects/movable/vertial/Vertical.tscn" id="3_8hoee"]
+[ext_resource type="PackedScene" path="res://gameObjects/mapElements/exit/Exit.tscn" id="4_shvw2"]
+[ext_resource type="PackedScene" path="res://gameObjects/movable/crate/Crate.tscn" id="5_dn43k"]
+[ext_resource type="PackedScene" path="res://gameObjects/movable/battery/Battery.tscn" id="6_pkm24"]
+[ext_resource type="PackedScene" path="res://gameObjects/movable/dummy_crate/DummyCrate.tscn" id="7_crltn"]
+[ext_resource type="PackedScene" path="res://gameObjects/movable/horizontal/Horizontal.tscn" id="8_02naw"]
+[ext_resource type="TileSet" uid="uid://dhm6027rcsgug" path="res://assets/tres/BlueTileset.tres" id="9_0lsam"]
+
+[node name="LevelPlaceholder" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = ExtResource("9_0lsam")
+format = 2
+layer_0/tile_data = PackedInt32Array(65533, 0, 0, 131069, 196608, 0, 196605, 196608, 0, 262141, 196608, 0, 327677, 393216, 0, 393213, 196608, 0, 458749, 196608, 0, 524285, 196608, 0, 589821, 196608, 0, 655357, 196608, 0, 720893, 262144, 0, 720894, 65536, 0, 720895, 65536, 0, 655360, 65536, 0, 655361, 65536, 0, 655362, 65536, 0, 655363, 589824, 0, 655364, 65536, 0, 655365, 65536, 0, 5, 65536, 0, 4, 65536, 0, 3, 65536, 0, 2, 65536, 0, 1, 458752, 0, 0, 65536, 0, 65535, 65536, 0, 65534, 65536, 0, 6, 131072, 0, 65542, 196608, 0, 131078, 196608, 0, 196614, 196608, 0, 262150, 524288, 0, 393222, 196608, 0, 327686, 196608, 0, 458758, 196608, 0, 524294, 196608, 0, 589830, 196608, 0, 655366, 327680, 0, 262148, 917504, 0, 262149, 65536, 0, 327678, 65536, 0, 327679, 786432, 0, 524291, 720896, 0, 589827, 196608, 0, 65537, 196608, 0, 131073, 851968, 0, 327683, 196608, 2, 393219, 196608, 2, 458755, 196608, 2, 327684, 0, 2, 393220, 0, 2, 458756, 65536, 2, 327685, 65536, 2, 393221, 0, 2, 458757, 196608, 2, 327690, 196608, 2, 393226, 131072, 2, 393227, 196608, 2, 458763, 196608, 2, 458764, 0, 2, 458765, 0, 2, 393230, 65536, 2, 327694, 65536, 2, 327693, 131072, 2, 327692, 65536, 2, 327691, 0, 2, 393228, 0, 2, 327695, 65536, 2, 262158, 0, 2, 262157, 65536, 2, 262156, 65536, 2, 262155, 0, 2, 196618, 65536, 2, 196617, 196608, 2, 131082, 131072, 2, 131083, 65536, 2, 131084, 196608, 2, 131085, 196608, 2, 131086, 131072, 2, 131087, 0, 2, 196623, 196608, 2, 196624, 65536, 2, 262160, 65536, 2, 327696, 131072, 2, 393232, 0, 2, 393231, 65536, 2, 458767, 131072, 2, 458766, 0, 2, 524302, 196608, 2, 524303, 131072, 2, 458768, 0, 2, 393233, 0, 2, 327697, 196608, 2, 262161, 65536, 2, 196619, 131072, 2, 196620, 196608, 2, 196621, 131072, 2, 196622, 0, 2, 262159, 65536, 2, 131070, 0, 2, 131071, 0, 2, 65536, 65536, 2, 131072, 131072, 2, 196607, 131072, 2, 196606, 65536, 2, 262142, 131072, 2, 262143, 65536, 2, 196608, 65536, 2, 196613, 196608, 2, 131077, 0, 2, 65541, 0, 2, 196612, 0, 2, 131076, 131072, 2, 65540, 65536, 2, 196611, 0, 2, 131075, 131072, 2, 65539, 65536, 2, 196610, 131072, 2, 131074, 196608, 2, 65538, 131072, 2, 458754, 131072, 2, 393218, 131072, 2, 327682, 0, 2, 589829, 196608, 2, 524293, 65536, 2, 589828, 196608, 2, 524292, 0, 2, 589826, 65536, 2, 524290, 0, 2, 589825, 131072, 2, 524289, 65536, 2, 589824, 0, 2, 524288, 196608, 2, 655359, 131072, 2, 589823, 196608, 2, 655358, 196608, 2, 589822, 131072, 2, 458753, 0, 2, 393217, 131072, 2, 327681, 0, 2, 458752, 131072, 2, 393216, 131072, 2, 327680, 131072, 2, 524287, 0, 2, 458751, 0, 2, 393215, 65536, 2, 524286, 65536, 2, 458750, 131072, 2, 393214, 65536, 2, 262147, 65536, 2, 262146, 65536, 2, 262145, 65536, 2, 196609, 65536, 2, 262144, 65536, 2)
+
+[node name="LevelMetadataComponent" parent="." instance=ExtResource("1_5b7g1")]
+level_number = 99
+world_number = 99
+
+[node name="MapCenter" type="Marker2D" parent="."]
+position = Vector2(32, 80)
+
+[node name="Robots" type="Node2D" parent="."]
+
+[node name="Horizontal" parent="Robots" instance=ExtResource("8_02naw")]
+position = Vector2(40, 120)
+
+[node name="Vertical" parent="Robots" instance=ExtResource("3_8hoee")]
+position = Vector2(24, 120)
+
+[node name="Exit" parent="." instance=ExtResource("4_shvw2")]
+position = Vector2(40, 24)
+
+[node name="Batteries" type="Node2D" parent="."]
+
+[node name="Battery" parent="Batteries" instance=ExtResource("6_pkm24")]
+position = Vector2(8, 72)
+
+[node name="Crates" type="Node2D" parent="."]
+position = Vector2(40, 56)
+
+[node name="Crate" parent="Crates" instance=ExtResource("5_dn43k")]
+position = Vector2(-32, 32)
+
+[node name="DummyCrate" parent="." instance=ExtResource("7_crltn")]
+position = Vector2(8, 56)
