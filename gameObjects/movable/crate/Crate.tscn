@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=7 format=3 uid="uid://r1f0dnqellit"]
 
 [ext_resource type="Script" path="res://gameObjects/movable/crate/Crate.gd" id="1_1qgyc"]
 [ext_resource type="Texture2D" uid="uid://dyk5husexnfnh" path="res://assets/sprites/Sprite-0002.png" id="2_4io46"]

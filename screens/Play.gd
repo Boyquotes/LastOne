@@ -10,13 +10,17 @@ var level5 = preload("res://levels/World0/Level05.tscn")
 
 var test_level = preload("res://levels/PlaygroundLevel.tscn")
 
-var level_index = 1
 var crates_on_level = -1
 var current_crates_on_exit = 0
 
 var levels = [test_level, level1, level2, level3, level4, level5]
 var map_states: Array[Dictionary] = []
 var current_level: Node2D
+
+var initial_level: PackedScene = level1
+
+func set_initial_level(level: PackedScene):
+  initial_level = level
 
 func load_level(levelScene: PackedScene):
   var level = levelScene.instantiate()
@@ -70,8 +74,7 @@ func unload_level():
   current_level.queue_free()
   
 func _ready():
-  load_level(levels[level_index])
-  
+  load_level(initial_level)
   
 func _process(_delta):
   if Input.is_action_just_pressed("ui_accept"):
@@ -87,8 +90,9 @@ func _on_crate_entered_exit():
   current_crates_on_exit += 1
   
   if current_crates_on_exit == crates_on_level:
-    level_index += 1
-    load_level(levels[level_index])
+    GameState.current_level += 1
+    SaveManager.save_game()
+    load_level(levels[GameState.current_level])
     
 func revert_action():
   var index = map_states.size() - 1

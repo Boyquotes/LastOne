@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://cimgd5bl0r35w"]
 
 [ext_resource type="PackedScene" uid="uid://b571ig5opyff7" path="res://components/PushLayerComponent.tscn" id="1_sdm1w"]
 [ext_resource type="Texture2D" uid="uid://dyk5husexnfnh" path="res://assets/sprites/Sprite-0002.png" id="2_4ou41"]
