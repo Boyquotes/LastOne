@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvk2fqgwvgd73"]
+[gd_scene load_steps=5 format=3 uid="uid://dvk2fqgwvgd73"]
 
 [ext_resource type="Script" path="res://gameObjects/other/LevelSelector.gd" id="1_wy0p0"]
 [ext_resource type="Texture2D" uid="uid://dyk5husexnfnh" path="res://assets/sprites/Sprite-0002.png" id="2_c1242"]
+[ext_resource type="Script" path="res://components/ActivateComponent.gd" id="3_tgbwc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qbj2f"]
 atlas = ExtResource("2_c1242")
@@ -15,5 +16,11 @@ texture_filter = 1
 offset_right = 16.0
 offset_bottom = 16.0
 texture_normal = SubResource("AtlasTexture_qbj2f")
+
+[node name="ActivateComponent" type="Node2D" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("3_tgbwc")
+initial_color = Color(0.305882, 0.290196, 0.305882, 1)
+active_color = Color(0.34902, 0.913725, 0.945098, 1)
+sprite = NodePath("../TextureButton")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

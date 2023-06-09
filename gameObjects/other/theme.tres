@@ -1,0 +1,22 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://r15hkq2ck3dj"]
+
+[ext_resource type="FontFile" uid="uid://c45jflungici8" path="res://assets/fonts/upheavtt.ttf" id="1_1tuuq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_46ts5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_41h4k"]
+
+[resource]
+default_font = ExtResource("1_1tuuq")
+default_font_size = 42
+Button/styles/normal = SubResource("StyleBoxTexture_46ts5")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 42
+Label/styles/normal = SubResource("StyleBoxEmpty_41h4k")

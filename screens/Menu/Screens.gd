@@ -1,6 +1,6 @@
 extends Node2D
 
-var initial_scene = preload("res:///screens/Menu/MainMenu.tscn")
+var initial_scene = preload("res:///screens/World.tscn")
 var current_scene: Node = null
 
 @onready var ScreenTransition = $CanvasLayer/AspectRatioContainer/ScreenTransition

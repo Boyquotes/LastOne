@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5nipcspryavw"]
 
+[ext_resource type="Script" path="res://screens/Menu/MainMenu.gd" id="1_f4rfl"]
 [ext_resource type="Script" path="res://components/UI/ScreenChangerComponent.gd" id="1_kmv0b"]
-[ext_resource type="Script" path="res://screens/Menu/MainMenu.gd" id="1_m6wpr"]
 
 [node name="MainMenu" type="Node2D"]
-script = ExtResource("1_m6wpr")
+script = ExtResource("1_f4rfl")
 
 [node name="ScreenChangerComponent" type="Node2D" parent="."]
 script = ExtResource("1_kmv0b")

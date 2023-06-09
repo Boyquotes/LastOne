@@ -1,16 +1,21 @@
+# autoloaded as GameState
+
 extends Node2D
 
-@export var current_level := 0
-@export var unlocked_levels := 1
+@export var currently_selected_level := 0
+@export var currently_selected_world := 0
+@export var unlocked_level := 1
 
 func serialize():
     var serialized = {
-        "current_level": current_level,
-        "unlocked_levels": unlocked_levels
+        "currently_selected_level": currently_selected_level,
+        "currently_selected_world": currently_selected_world,
+        "unlocked_level": unlocked_level
     }
 
     return serialized
 
 func deserialize(data: Dictionary):
-    current_level = data.get("current_level", 0)
-    unlocked_levels = data.get("unlocked_levels", 1)
+    currently_selected_level = data.get("currently_selected_level", 0)
+    currently_selected_world = data.get("currently_selected_world", 0)
+    unlocked_level = data.get("unlocked_level", 1)

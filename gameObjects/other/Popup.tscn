@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=3 uid="uid://buovd6v0n718a"]
+
+[ext_resource type="Theme" uid="uid://r15hkq2ck3dj" path="res://gameObjects/other/theme.tres" id="1_m4xfb"]
+
+[node name="Popup" type="CenterContainer"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_m4xfb")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Button" type="Button" parent="MarginContainer"]
+layout_mode = 2
+text = "X"
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.5
+offset_top = -107.5
+offset_right = 195.5
+offset_bottom = 107.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 42
+theme_override_constants/margin_top = 42
+theme_override_constants/margin_right = 42
+theme_override_constants/margin_bottom = 42
+
+[node name="CenterContainer" type="CenterContainer" parent="Container/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/MarginContainer2/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 42
+
+[node name="MarginContainer" type="MarginContainer" parent="Container/MarginContainer2/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Container/MarginContainer2/CenterContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Are you sure?"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Container/MarginContainer2/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Container/MarginContainer2/CenterContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 36
+alignment = 1
+
+[node name="Button" type="Button" parent="Container/MarginContainer2/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+text = "OK"
+
+[node name="Button2" type="Button" parent="Container/MarginContainer2/CenterContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Cancel"

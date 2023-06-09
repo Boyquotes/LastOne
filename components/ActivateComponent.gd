@@ -3,7 +3,7 @@ class_name ActivateComponent
 
 @export var initial_color: Color
 @export var active_color: Color
-@export var sprite: Sprite2D 
+@export var sprite: CanvasItem 
 
 func _ready():
     sprite.modulate = initial_color

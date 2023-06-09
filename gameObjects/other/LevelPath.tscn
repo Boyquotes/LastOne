@@ -10,6 +10,7 @@ region = Rect2(80, 32, 16, 16)
 
 [node name="LevelPath" type="Node2D"]
 script = ExtResource("1_sq6vn")
+level_index = null
 
 [node name="ActivateComponent" type="Node2D" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("2_sbc04")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ci1m7f1yt15u3"]
+[gd_scene load_steps=7 format=3 uid="uid://ci1m7f1yt15u3"]
 
 [ext_resource type="Shader" path="res://assets/shaders/Crt.gdshader" id="1_b6rf7"]
 [ext_resource type="Script" path="res://screens/Menu/Screens.gd" id="1_cr7bf"]
+[ext_resource type="Script" path="res://gameObjects/ui/Button.gd" id="2_kdwa0"]
 [ext_resource type="Shader" path="res://assets/shaders/Transition.gdshader" id="3_fxwcu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wfdyn"]
@@ -35,6 +36,12 @@ shader_parameter/circle_size = 1.0
 
 [node name="Screens" type="Node2D"]
 script = ExtResource("1_cr7bf")
+
+[node name="UIButton" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_kdwa0")
+label = "Labelsasdasd"
 
 [node name="ScreenContainer" type="Node" parent="."]
 

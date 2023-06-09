@@ -1,39 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://0poc2sufh4im"]
+[gd_scene load_steps=3 format=3 uid="uid://0poc2sufh4im"]
 
 [ext_resource type="Script" path="res://screens/World.gd" id="1_sxg1j"]
-[ext_resource type="Shader" path="res://assets/shaders/Crt.gdshader" id="2_3n44l"]
 [ext_resource type="Script" path="res://components/UI/ScreenChangerComponent.gd" id="2_mh15n"]
-[ext_resource type="FontFile" uid="uid://c45jflungici8" path="res://assets/fonts/upheavtt.ttf" id="3_d0ttx"]
-[ext_resource type="Shader" path="res://assets/shaders/Transition.gdshader" id="4_ywbu6"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v44qi"]
-shader = ExtResource("2_3n44l")
-shader_parameter/overlay = false
-shader_parameter/scanlines_opacity = 0.196
-shader_parameter/scanlines_width = 0.25
-shader_parameter/grille_opacity = 0.0
-shader_parameter/resolution = Vector2(640, 480)
-shader_parameter/pixelate = false
-shader_parameter/roll = true
-shader_parameter/roll_speed = 8.0
-shader_parameter/roll_size = 15.0
-shader_parameter/roll_variation = 0.1
-shader_parameter/distort_intensity = 0.0
-shader_parameter/noise_opacity = 0.0
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.03
-shader_parameter/aberration = 0.01
-shader_parameter/brightness = 1.4
-shader_parameter/discolor = true
-shader_parameter/warp_amount = 0.0
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.3
-shader_parameter/vignette_opacity = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nt0xg"]
-shader = ExtResource("4_ywbu6")
-shader_parameter/diamondPixelSize = 10.0
-shader_parameter/circle_size = 0.0
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_sxg1j")
@@ -45,58 +13,10 @@ script = ExtResource("2_mh15n")
 zoom = Vector2(4, 4)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
-[node name="CrtLayer" type="ColorRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_v44qi")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-metadata/_edit_lock_ = true
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_right = 45.0
+offset_bottom = 31.0
+text = "Back"
 
-[node name="Container" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-size_flags_vertical = 8
-
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Container"]
-layout_mode = 2
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 483.5
-offset_top = 567.0
-offset_right = 578.5
-offset_bottom = 607.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/margin_bottom = 24
-
-[node name="Label" type="Label" parent="CanvasLayer/Container/MarginContainer2"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("3_d0ttx")
-theme_override_font_sizes/font_size = 32
-text = "Tutorial Island"
-
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-stretch_mode = 0
-metadata/_edit_lock_ = true
-
-[node name="ScreenTransition" type="ColorRect" parent="CanvasLayer/AspectRatioContainer"]
-material = SubResource("ShaderMaterial_nt0xg")
-layout_mode = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

@@ -1,3 +1,4 @@
+# autoloaded as SaveManager
 extends Node
 
 # TODO: add versioning to prevent double saving

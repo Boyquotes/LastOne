@@ -10,6 +10,8 @@ func _ready():
 
 
 func _on_play_pressed():
+    # TODO - connect with save state - that depends on the fact if the last was world or level scene.
+    # Different behaviour when plyer will first time do this
     screenChangerComponent.change_scene(world_screen)
 
 func _on_options_pressed():
