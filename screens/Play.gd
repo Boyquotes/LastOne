@@ -82,7 +82,9 @@ func _on_crate_entered_exit():
   current_crates_on_exit += 1
   
   if current_crates_on_exit == crates_on_level:
-    GameState.unlocked_level += level_definition.index_increment
+    if !level_definition.was_already_unlocked():
+        GameState.unlocked_level += level_definition.index_increment
+        
     level_definition = level_definition.next_level_definition
     
     SaveManager.save_game()

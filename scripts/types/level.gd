@@ -18,3 +18,6 @@ func initialize(
     unlockable_index = _unlockable_index
     
     return self
+
+func was_already_unlocked() -> bool:
+    return GameState.unlocked_level > self.unlockable_index + 0.1 # just to be sure xD
