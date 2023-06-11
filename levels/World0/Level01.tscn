@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://dwgmmi3iquahw" path="res://components/LevelMetadataComponent.tscn" id="1_1jlvc"]
 [ext_resource type="TileSet" uid="uid://dhm6027rcsgug" path="res://assets/tres/BlueTileset.tres" id="2_akcqq"]
 [ext_resource type="PackedScene" uid="uid://b1quhukm2v17l" path="res://levels/World0/Level02.tscn" id="2_ib3h7"]
-[ext_resource type="PackedScene" path="res://gameObjects/movable/vertial/Vertical.tscn" id="3_38a54"]
+[ext_resource type="PackedScene" uid="uid://bspv4dkgnkbux" path="res://gameObjects/movable/vertial/Vertical.tscn" id="3_38a54"]
 [ext_resource type="PackedScene" path="res://gameObjects/mapElements/exit/Exit.tscn" id="4_uvvsu"]
-[ext_resource type="PackedScene" path="res://gameObjects/movable/crate/Crate.tscn" id="5_i2ofb"]
+[ext_resource type="PackedScene" uid="uid://r1f0dnqellit" path="res://gameObjects/movable/crate/Crate.tscn" id="5_i2ofb"]
 
 [node name="Level01" type="Node2D"]
 

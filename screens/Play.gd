@@ -2,25 +2,16 @@ extends Node2D
 
 var selected_child: Node2D = null
 
-var level1 = preload("res://levels/World0/Level01.tscn")
-var level2 = preload("res://levels/World0/Level02.tscn")
-var level3 = preload("res://levels/World0/Level03.tscn")
-var level4 = preload("res://levels/World0/Level04.tscn")
-var level5 = preload("res://levels/World0/Level05.tscn")
-
-var test_level = preload("res://levels/PlaygroundLevel.tscn")
-
 var crates_on_level = -1
 var current_crates_on_exit = 0
 
-var levels = [test_level, level1, level2, level3, level4, level5]
 var map_states: Array[Dictionary] = []
 var current_level: Node2D
 
-var initial_level: PackedScene = level1
+var level_definition: Level
 
-func set_initial_level(level: PackedScene):
-  initial_level = level
+func set_level(_level_definition: Level):
+    level_definition = _level_definition
 
 func load_level(levelScene: PackedScene):
   var level = levelScene.instantiate()
@@ -74,7 +65,8 @@ func unload_level():
   current_level.queue_free()
   
 func _ready():
-  load_level(initial_level)
+  level_definition = LevelsDefinition.levels[GameState.currently_selected_level]
+  load_level(level_definition.level_scene)
   
 func _process(_delta):
   if Input.is_action_just_pressed("ui_accept"):
@@ -90,9 +82,11 @@ func _on_crate_entered_exit():
   current_crates_on_exit += 1
   
   if current_crates_on_exit == crates_on_level:
-    GameState.current_level += 1
+    GameState.unlocked_level += level_definition.index_increment
+    level_definition = level_definition.next_level_definition
+    
     SaveManager.save_game()
-    load_level(levels[GameState.current_level])
+    load_level(level_definition.level_scene)
     
 func revert_action():
   var index = map_states.size() - 1

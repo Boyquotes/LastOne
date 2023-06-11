@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://dygth5sy2dse2"]
 
 [ext_resource type="PackedScene" uid="uid://dwgmmi3iquahw" path="res://components/LevelMetadataComponent.tscn" id="1_5b7g1"]
-[ext_resource type="PackedScene" path="res://gameObjects/movable/vertial/Vertical.tscn" id="3_8hoee"]
+[ext_resource type="PackedScene" uid="uid://bspv4dkgnkbux" path="res://gameObjects/movable/vertial/Vertical.tscn" id="3_8hoee"]
 [ext_resource type="PackedScene" path="res://gameObjects/mapElements/exit/Exit.tscn" id="4_shvw2"]
-[ext_resource type="PackedScene" path="res://gameObjects/movable/crate/Crate.tscn" id="5_dn43k"]
-[ext_resource type="PackedScene" path="res://gameObjects/movable/battery/Battery.tscn" id="6_pkm24"]
-[ext_resource type="PackedScene" path="res://gameObjects/movable/dummy_crate/DummyCrate.tscn" id="7_crltn"]
-[ext_resource type="PackedScene" path="res://gameObjects/movable/horizontal/Horizontal.tscn" id="8_02naw"]
+[ext_resource type="PackedScene" uid="uid://r1f0dnqellit" path="res://gameObjects/movable/crate/Crate.tscn" id="5_dn43k"]
+[ext_resource type="PackedScene" uid="uid://jcljh8psgrod" path="res://gameObjects/movable/battery/Battery.tscn" id="6_pkm24"]
+[ext_resource type="PackedScene" uid="uid://cimgd5bl0r35w" path="res://gameObjects/movable/dummy_crate/DummyCrate.tscn" id="7_crltn"]
+[ext_resource type="PackedScene" uid="uid://cmplk51mbkpts" path="res://gameObjects/movable/horizontal/Horizontal.tscn" id="8_02naw"]
 [ext_resource type="TileSet" uid="uid://dhm6027rcsgug" path="res://assets/tres/BlueTileset.tres" id="9_0lsam"]
 
 [node name="LevelPlaceholder" type="Node2D"]

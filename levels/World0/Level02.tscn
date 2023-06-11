@@ -2,15 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://dwgmmi3iquahw" path="res://components/LevelMetadataComponent.tscn" id="1_jh8eh"]
 [ext_resource type="TileSet" uid="uid://dhm6027rcsgug" path="res://assets/tres/BlueTileset.tres" id="2_7ibmt"]
-[ext_resource type="PackedScene" path="res://gameObjects/movable/horizontal/Horizontal.tscn" id="3_afcwg"]
+[ext_resource type="PackedScene" uid="uid://cmplk51mbkpts" path="res://gameObjects/movable/horizontal/Horizontal.tscn" id="3_afcwg"]
 [ext_resource type="PackedScene" path="res://gameObjects/mapElements/exit/Exit.tscn" id="4_sv0i5"]
-[ext_resource type="PackedScene" path="res://gameObjects/movable/crate/Crate.tscn" id="5_yd7hu"]
+[ext_resource type="PackedScene" uid="uid://r1f0dnqellit" path="res://gameObjects/movable/crate/Crate.tscn" id="5_yd7hu"]
 
 [node name="Level02" type="Node2D"]
 
 [node name="LevelMetadataComponent" parent="." instance=ExtResource("1_jh8eh")]
 level_number = 2
 world_number = 1
+level_key = 1
 
 [node name="Map" type="TileMap" parent="."]
 texture_filter = 1

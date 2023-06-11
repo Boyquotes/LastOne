@@ -19,9 +19,9 @@ func _ready():
     for level_selector in world_0_levels.get_children():
         level_selector.connect("selected", self._on_level_selected)
 
-func _on_level_selected(level: PackedScene):
+func _on_level_selected(level_key: LevelsDefinition.LevelKey):
+    GameState.currently_selected_level = level_key
     var play_scene_instantion = play_scene.instantiate()
-    play_scene_instantion.set_initial_level(level)
     
     queue_free()
     

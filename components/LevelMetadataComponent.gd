@@ -6,6 +6,8 @@ class_name LevelMetadataComponent;
 @export var best_number_of_moves: int = 0
 @export var level_title: String = ''
 
+@export var level_key: LevelsDefinition.LevelKey
+
 @export var next_level: PackedScene
 
 func set_label_text(label: Label):

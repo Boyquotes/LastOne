@@ -2,7 +2,7 @@
 
 extends Node2D
 
-@export var currently_selected_level := 0
+@export var currently_selected_level: LevelsDefinition.LevelKey = LevelsDefinition.LevelKey.LEVEL_0_0
 @export var currently_selected_world := 0
 @export var unlocked_level := 1
 
