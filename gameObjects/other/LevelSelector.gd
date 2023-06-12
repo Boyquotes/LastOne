@@ -11,8 +11,7 @@ func _ready():
     activateComponent.deactivate()
     level = LevelsDefinition.levels[level_key]
     
-    var unlocked_level = GameState.unlocked_level
-    if unlocked_level >= level.unlockable_index:
+    if level.is_unlocked():
         activateComponent.activate()
 
 func _on_texture_button_pressed():
