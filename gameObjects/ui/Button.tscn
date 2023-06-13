@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://2df23vf0swd3"]
+
+[ext_resource type="Script" path="res://gameObjects/ui/Button.gd" id="1_0b573"]
+[ext_resource type="Texture2D" uid="uid://brpo7as2j2vnu" path="res://assets/Sprite-0002.png" id="1_o0pla"]
+[ext_resource type="Theme" uid="uid://r15hkq2ck3dj" path="res://gameObjects/other/theme.tres" id="2_vvmn7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfpg8"]
+atlas = ExtResource("1_o0pla")
+region = Rect2(65, 33, 14, 14)
+
+[node name="Control" type="MarginContainer"]
+offset_right = 168.0
+offset_bottom = 42.0
+script = ExtResource("1_0b573")
+
+[node name="Button" type="NinePatchRect" parent="."]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_lfpg8")
+draw_center = false
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_vvmn7")
+text = "Label"

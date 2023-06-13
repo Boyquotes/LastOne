@@ -2,16 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://dwgmmi3iquahw" path="res://components/LevelMetadataComponent.tscn" id="1_rjv0p"]
 [ext_resource type="TileSet" uid="uid://dhm6027rcsgug" path="res://assets/tres/BlueTileset.tres" id="2_dnsnq"]
-[ext_resource type="PackedScene" path="res://gameObjects/movable/vertial/Vertical.tscn" id="3_j5knk"]
-[ext_resource type="PackedScene" path="res://gameObjects/movable/horizontal/Horizontal.tscn" id="4_a7b02"]
+[ext_resource type="PackedScene" uid="uid://bspv4dkgnkbux" path="res://gameObjects/movable/vertial/Vertical.tscn" id="3_j5knk"]
+[ext_resource type="PackedScene" uid="uid://cmplk51mbkpts" path="res://gameObjects/movable/horizontal/Horizontal.tscn" id="4_a7b02"]
 [ext_resource type="PackedScene" path="res://gameObjects/mapElements/exit/Exit.tscn" id="5_m5ko3"]
-[ext_resource type="PackedScene" path="res://gameObjects/movable/crate/Crate.tscn" id="6_v7pja"]
+[ext_resource type="PackedScene" uid="uid://r1f0dnqellit" path="res://gameObjects/movable/crate/Crate.tscn" id="6_v7pja"]
 
 [node name="Level04" type="Node2D"]
 
 [node name="LevelMetadataComponent" parent="." instance=ExtResource("1_rjv0p")]
 level_number = 99
 world_number = 99
+level_key = 3
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1

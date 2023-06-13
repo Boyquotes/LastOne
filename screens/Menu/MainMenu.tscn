@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5nipcspryavw"]
+
+[ext_resource type="Script" path="res://screens/Menu/MainMenu.gd" id="1_f4rfl"]
+[ext_resource type="Script" path="res://components/UI/ScreenChangerComponent.gd" id="1_kmv0b"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_f4rfl")
+
+[node name="ScreenChangerComponent" type="Node2D" parent="."]
+script = ExtResource("1_kmv0b")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Container" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.5
+offset_top = -50.5
+offset_right = 108.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 48
+
+[node name="Play" type="Button" parent="CanvasLayer/Container/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Play"
+
+[node name="Options" type="Button" parent="CanvasLayer/Container/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Options"
+
+[connection signal="pressed" from="CanvasLayer/Container/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Container/VBoxContainer/Options" to="." method="_on_options_pressed"]

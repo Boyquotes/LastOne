@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://ci1m7f1yt15u3"]
+
+[ext_resource type="Shader" path="res://assets/shaders/Crt.gdshader" id="1_b6rf7"]
+[ext_resource type="Script" path="res://screens/Menu/Screens.gd" id="1_cr7bf"]
+[ext_resource type="Script" path="res://gameObjects/ui/Button.gd" id="2_kdwa0"]
+[ext_resource type="Shader" path="res://assets/shaders/Transition.gdshader" id="3_fxwcu"]
+[ext_resource type="PackedScene" uid="uid://buvbtctbhkb6p" path="res://gameObjects/ui/DebugUI.tscn" id="5_mkb7q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wfdyn"]
+shader = ExtResource("1_b6rf7")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.196
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 0.1
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.0
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.03
+shader_parameter/aberration = 0.01
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.3
+shader_parameter/vignette_opacity = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2qu13"]
+shader = ExtResource("3_fxwcu")
+shader_parameter/diamondPixelSize = 10.0
+shader_parameter/circle_size = 1.0
+
+[node name="Screens" type="Node2D"]
+script = ExtResource("1_cr7bf")
+
+[node name="UIButton" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_kdwa0")
+label = "Labelsasdasd"
+
+[node name="ScreenContainer" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+visible = false
+
+[node name="CrtLayer" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_wfdyn")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch_mode = 0
+metadata/_edit_lock_ = true
+
+[node name="ScreenTransition" type="ColorRect" parent="CanvasLayer/AspectRatioContainer"]
+material = SubResource("ShaderMaterial_2qu13")
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="DebugUI" parent="." instance=ExtResource("5_mkb7q")]
+offset_top = -227.5
+offset_right = 1102.0
+offset_bottom = 874.5

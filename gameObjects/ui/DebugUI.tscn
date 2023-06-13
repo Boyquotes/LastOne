@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://buvbtctbhkb6p"]
+
+[ext_resource type="Theme" uid="uid://r15hkq2ck3dj" path="res://gameObjects/other/theme.tres" id="1_l2prt"]
+[ext_resource type="Script" path="res://gameObjects/ui/DebugUI.gd" id="1_wbo81"]
+
+[node name="DebugUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_l2prt")
+script = ExtResource("1_wbo81")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 11
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Toggle" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Debug"
+
+[node name="HFlowContainer" type="HFlowContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RestartSave" type="Button" parent="CanvasLayer/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+text = "Restart save"
+
+[node name="ReloadGame" type="Button" parent="CanvasLayer/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+text = "Reload scene"
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Toggle" to="." method="_on_toggle_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HFlowContainer/RestartSave" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HFlowContainer/ReloadGame" to="." method="_on_reload_game_pressed"]

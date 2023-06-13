@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=8 format=3 uid="uid://jcljh8psgrod"]
 
 [ext_resource type="Script" path="res://gameObjects/movable/battery/Battery.gd" id="1_k7lty"]
 [ext_resource type="Texture2D" uid="uid://dyk5husexnfnh" path="res://assets/sprites/Sprite-0002.png" id="2_hbaa5"]

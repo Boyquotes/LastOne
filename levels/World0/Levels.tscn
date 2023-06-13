@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbr7vr3yvvggq"]
+
+[ext_resource type="PackedScene" uid="uid://dvk2fqgwvgd73" path="res://gameObjects/other/LevelSelector.tscn" id="1_tbprq"]
+[ext_resource type="PackedScene" uid="uid://btd7repien4df" path="res://gameObjects/other/LevelPath.tscn" id="3_gl0jc"]
+
+[node name="Levels" type="Node2D"]
+
+[node name="LevelSelector" parent="." instance=ExtResource("1_tbprq")]
+position = Vector2(-104, -8)
+
+[node name="LevelSelector1" parent="." instance=ExtResource("1_tbprq")]
+position = Vector2(-56, -8)
+level_key = 1
+
+[node name="LevelSelector2" parent="." instance=ExtResource("1_tbprq")]
+position = Vector2(-8, -24)
+level_key = 2
+
+[node name="LevelSelector3" parent="." instance=ExtResource("1_tbprq")]
+position = Vector2(-8, 8)
+level_key = 3
+
+[node name="LevelSelector4" parent="." instance=ExtResource("1_tbprq")]
+position = Vector2(40, -8)
+level_key = 4
+
+[node name="LevelPath3" parent="." instance=ExtResource("3_gl0jc")]
+position = Vector2(-24, 0)
+rotation = 1.5708
+is_horizontal = true
+
+[node name="LevelPath2" parent="." instance=ExtResource("3_gl0jc")]
+position = Vector2(-72, 0)
+rotation = 1.5708
+is_horizontal = true
+
+[node name="LevelPath" parent="." instance=ExtResource("3_gl0jc")]
+position = Vector2(24, 0)
+rotation = 1.5708
+is_horizontal = true

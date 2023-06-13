@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://0poc2sufh4im"]
+
+[ext_resource type="Script" path="res://screens/World.gd" id="1_sxg1j"]
+[ext_resource type="Script" path="res://components/UI/ScreenChangerComponent.gd" id="2_mh15n"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_sxg1j")
+
+[node name="ScreenChangerComponent" type="Node2D" parent="."]
+script = ExtResource("2_mh15n")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_right = 45.0
+offset_bottom = 31.0
+text = "Back"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

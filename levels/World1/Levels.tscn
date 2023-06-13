@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bli3g2cujicgs"]
+
+[ext_resource type="PackedScene" uid="uid://dvk2fqgwvgd73" path="res://gameObjects/other/LevelSelector.tscn" id="1_l7cei"]
+
+[node name="Levels" type="Node2D"]
+
+[node name="LevelSelector" parent="." instance=ExtResource("1_l7cei")]
+position = Vector2(-8, -8)
+level_key = 5

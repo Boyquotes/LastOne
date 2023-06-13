@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://bspv4dkgnkbux"]
 
 [ext_resource type="Script" path="res://gameObjects/movable/vertial/Vertical.gd" id="1_r8rox"]
 [ext_resource type="PackedScene" uid="uid://b571ig5opyff7" path="res://components/PushLayerComponent.tscn" id="2_k318w"]
