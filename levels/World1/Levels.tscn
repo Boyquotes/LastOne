@@ -6,3 +6,4 @@
 
 [node name="LevelSelector" parent="." instance=ExtResource("1_l7cei")]
 position = Vector2(-8, -8)
+level_key = 5

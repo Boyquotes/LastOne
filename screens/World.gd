@@ -6,17 +6,14 @@ extends Node2D
 var play_scene = preload("res://screens/Play.tscn")
 var world_selector_scene = preload("res://screens/WorldSelector.tscn")
 
-var world_0_levels_node = preload("res://levels/World0/Levels.tscn")
-
 func _ready():
-    SaveManager.load_game()
+    var world = WorldsDefinition.worlds[GameState.currently_selected_world]
+    var world_levels = world.world_scene.instantiate()
     
-    var world_0_levels = world_0_levels_node.instantiate()
+    add_child(world_levels)
+    move_child(world_levels, 1)
     
-    add_child(world_0_levels)
-    move_child(world_0_levels, 1)
-    
-    for level_selector in world_0_levels.get_children():
+    for level_selector in world_levels.get_children():
         level_selector.connect("selected", self._on_level_selected)
 
 func _on_level_selected(level_key: LevelsDefinition.LevelKey):

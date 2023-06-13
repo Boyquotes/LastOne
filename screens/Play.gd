@@ -82,12 +82,11 @@ func _on_crate_entered_exit():
   current_crates_on_exit += 1
   
   if current_crates_on_exit == crates_on_level:
-    if !level_definition.is_unlocked():
-        GameState.finished_levels.append(GameState.currently_selected_level)
-        
     level_definition = level_definition.next_level_definition
     
-    SaveManager.save_game()
+    if !level_definition.is_unlocked():
+        GameState.finished_levels = GameState.finished_levels + [GameState.currently_selected_level]
+    
     load_level(level_definition.level_scene)
     
 func revert_action():

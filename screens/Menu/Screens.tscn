@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ci1m7f1yt15u3"]
+[gd_scene load_steps=8 format=3 uid="uid://ci1m7f1yt15u3"]
 
 [ext_resource type="Shader" path="res://assets/shaders/Crt.gdshader" id="1_b6rf7"]
 [ext_resource type="Script" path="res://screens/Menu/Screens.gd" id="1_cr7bf"]
 [ext_resource type="Script" path="res://gameObjects/ui/Button.gd" id="2_kdwa0"]
 [ext_resource type="Shader" path="res://assets/shaders/Transition.gdshader" id="3_fxwcu"]
+[ext_resource type="PackedScene" uid="uid://buvbtctbhkb6p" path="res://gameObjects/ui/DebugUI.tscn" id="5_mkb7q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wfdyn"]
 shader = ExtResource("1_b6rf7")
@@ -74,3 +75,8 @@ material = SubResource("ShaderMaterial_2qu13")
 layout_mode = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="DebugUI" parent="." instance=ExtResource("5_mkb7q")]
+offset_top = -227.5
+offset_right = 1102.0
+offset_bottom = 874.5

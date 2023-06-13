@@ -9,7 +9,7 @@ func initialize(
     _level_scene: PackedScene,
     _unlock_requirements: Array[LevelsDefinition.LevelKey],
     _next_level_definition: Level = null
-):
+) -> Level:
     level_scene = _level_scene
     next_level_definition = _next_level_definition
     unlock_requirements = _unlock_requirements

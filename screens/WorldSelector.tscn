@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://fq1ym2r3q5oi"]
+[gd_scene load_steps=4 format=3 uid="uid://fq1ym2r3q5oi"]
 
 [ext_resource type="Script" path="res://screens/WorldSelector.gd" id="1_tk5w6"]
 [ext_resource type="Script" path="res://components/UI/ScreenChangerComponent.gd" id="2_wy0yq"]
+[ext_resource type="PackedScene" uid="uid://dcnnijho7skvk" path="res://gameObjects/other/WorldSelector.tscn" id="3_7uued"]
 
 [node name="WorldSelector" type="Node2D"]
 script = ExtResource("1_tk5w6")
@@ -16,11 +17,11 @@ offset_right = 68.0
 offset_bottom = 31.0
 text = "Back"
 
-[node name="Button" type="Button" parent="CanvasLayer"]
-offset_top = 40.0
-offset_right = 68.0
-offset_bottom = 71.0
-text = "World 0"
+[node name="WorldSelector" parent="." instance=ExtResource("3_7uued")]
+position = Vector2(176, 144)
+
+[node name="WorldSelector2" parent="." instance=ExtResource("3_7uued")]
+position = Vector2(216, 144)
+world_key = 1
 
 [connection signal="pressed" from="CanvasLayer/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

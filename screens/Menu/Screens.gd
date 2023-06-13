@@ -8,6 +8,7 @@ var current_scene: Node = null
 
 func _ready():
     $CanvasLayer.visible = true
+    GameState.load_game()
     load_scene(initial_scene)
 
 func _on_change_scene_requested(new_scene: PackedScene):

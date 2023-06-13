@@ -21,9 +21,9 @@ InputEventSwipe="*res://scripts/input_event_swipe.gd"
 InputTouchJoystickChange="*res://scripts/input_touch_joystick_change.gd"
 InputTouchJoystickEnd="*res://scripts/input_touch_joystick_end.gd"
 InputTouchJoystickStart="*res://scripts/input_touch_joystick_start.gd"
-SaveManager="*res://scripts/save_manager.gd"
 GameState="*res://gameObjects/other/GameState.tscn"
 LevelsDefinition="*res://levels/LevelsDefinition.gd"
+WorldsDefinition="*res://levels/WorldsDefinition.gd"
 
 [display]
 
